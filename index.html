@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"
+      prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+
+<head>
+    <meta charset="utf-8"/>
+    <!--No Index Tags, Remove on pct.edu-->
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <!-- HTML Meta Tags -->
+    <title>Future Career Finder | Pennsylvania College of Technology</title>
+    <meta name="description"
+          content="Take the Future Career Finder Quiz to help find out which major best suites you at Pennsylvania Collage of Technogoly">
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Future Career Finder | Pennsylvania College of Technology">
+    <meta itemprop="description"
+          content="The Future Career Finder is a quiz to help find out which major best suites you at Pennsylvania College of Technology.">
+    <meta itemprop="image" content="https://www.pct.edu/sites/default/files/inline-images/pct-psu-logo-rev-mockup.png">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://pct.crazyyeagydesigns.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Future Career Finder | Pennsylvania College of Technology">
+    <meta property="og:description"
+          content="The Future Career Finder is a quiz to help find out which major best suites you at Pennsylvania College of Technology.">
+    <meta property="og:image"
+          content="https://www.pct.edu/sites/default/files/inline-images/pct-psu-logo-rev-mockup.png">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Future Career Finder | Pennsylvania College of Technology">
+    <meta name="twitter:description"
+          content="The Future Career Finder is a quiz to help find out which major best suites you at Pennsylvania College of Technology.">
+    <meta name="twitter:image"
+          content="https://www.pct.edu/sites/default/files/inline-images/pct-psu-logo-rev-mockup.png">
+    <!--Stylesheet Imports-->
+    <link rel="stylesheet" media="all" href="https://pro.fontawesome.com/releases/v5.7.2/css/all.css" async/>
+    <link rel="stylesheet" media="all"
+          href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:700&display=swap" async/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+          async>
+    <!--Chart JS CSS will need imported into this page-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+          integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" async/>
+    <!--PCT css files-->
+    <link rel="stylesheet" media="all" href="css/160.css" async/>
+    <link rel="stylesheet" media="all" href="css/penn_college.css" async/>
+    <!--My Custom CSS Sheet-->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="container-fluid">
+<div class="row align-items-center">
+    <!--Top Part-->
+    <div class="infoContainer col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex align-items-center" class="app-container">
+        <div id="directions" class="col-sm-12 col-md-10 col-lg-8 col-xl-8 bg-white align-items-center">
+            <p class="w-100 text-center p-5">
+                Welcome to the Pennsylvania College of Technology Future Career Finder. This tool is designed to help
+                you figure out which majors are the best match for you here at PCT. Swipe right for yes and left for no
+                to answer the questions appearing on the cards.
+            </p>
+        </div>
+        <div id="chartContainer" class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
+            <canvas id="radarChart" aria-label="Major Calculation Radar Chart" role="img"></canvas>
+        </div>
+    </div>
+    <!--Cards-->
+    <div class="swipe--container col-sm-12 col-md-12 col-lg-6 col-xl-6" class="app-container">
+        <div class="swipe--status">
+            <i class="fa fa-times"></i>
+            <i class="fa fa-equals"></i>
+            <i class="fa fa-check"></i>
+        </div>
+        <div class="swipeable--cards d-flex align-items-center justify-content-center mt-5">
+            <div class="swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5"
+                 id="0">
+                <p>Swipe to Continue</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='1'>
+                <p>I like to take things apart to see how they work</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='2'>
+                <p>I like to make art (drawing, sculpting, painting)</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='3'>
+                <p>I’m good with numbers</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='4'>
+                <p>When working on group projects, I usually take the lead</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='5'>
+                <p>I like learning how the body works</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='6'>
+                <p>I enjoy being outdoors in all types of weather</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='7'>
+                <p>I never follow a recipe exactly as written</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='8'>
+                <p>Working 9-5 isn't really for me - I like working nontraditional hours</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='9'>
+                <p>I like to solve mechanical or technical problems</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='10'>
+                <p>I am a people person</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='11'>
+                <p>It would be cool to design things that people can use</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='12'>
+                <p>I am motivatated by money more than passion</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='13'>
+                <p>I'm really into science</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='14'>
+                <p>I have a vivid imagination</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='15'>
+                <p>I consider myself an environmentalist</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='16'>
+                <p>I faint at the sight of blood</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='17'>
+                <p>I like loud work environments</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='18'>
+                <p>I enjoy troubleshooting or diagnosis</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='19'>
+                <p>I dream of running my own business</p>
+            </div>
+            <div class='swipeable--card bg-white d-flex text-center align-items-center justify-content-center col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-3 p-5'
+                 id='20'>
+                <p>I like to operate machines and keep them in good working order</p>
+            </div>
+        </div>
+        <div class="swipe--buttons">
+            <button id="button--false"><i class="fa fa-times"></i></button>
+            <button id="button--nuetral"><i class="fa fa-equals"></i></button>
+            <button id="button--true"><i class="fa fa-check"></i></button>
+        </div>
+    </div>
+    <!--Ending-->
+    <div class="postResults col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <div class="row justify-content-center">
+            <div id="results" class="col-sm-12 col-md-10 col-lg-8 col-xl-8"></div>
+            <div id="email-container" class="col-sm-12 col-md-10 col-lg-8 col-xl-8 mb-sm-5 mb-md-5 mb-lg-3">
+                <form class="contact__form bg-light-gray p-3" method="post" action="./php/contactForm.php">
+                    <!-- form message -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                                Your message was sent successfully.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end message -->
+                    <!-- form element -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <label for="contact-fname" class="mb-0 js-form-required form-required">First Name</label>
+                            <input id="contact-fname" name="contact-fname" type="text"
+                                   class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <label for="contact-lname" class="mb-0 js-form-required form-required">Last Name</label>
+                            <input id="contact-lname" name="contact-lname" type="text"
+                                   class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+                            <label for="contact-email" class="mb-0 js-form-required form-required">Email</label>
+                            <input id="contact-email" name="contact-email" type="email"
+                                   class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <label for="contact-dob" class="mb-0 js-form-required form-required">Date of Birth</label>
+                            <input id="contact-dob" name="contact-dob" type="date"
+                                   class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <label for="contact-semester" class="mb-0 js-form-required form-required">Starting
+                                Semester</label>
+                            <select id="contact-semester" name="contact-semester"
+                                    class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                                <option value="F2020">Fall 2020</option>
+                                <option value="S2021">Spring 2021</option>
+                                <option value="F2021">Fall 2021</option>
+                                <option value="S2022">Spring 2022</option>
+                                <option value="F2022">Fall 2022</option>
+                                <option value="S2023">Spring 2023</option>
+                                <option value="F2023">Fall 2023</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <input name="contact-submit" type="submit"
+                                   class="webform-button--submit btn btn-outline-corner bg-transparent button button--primary js-form-submit form-submit btn btn-primary form-control w-100"
+                                   value="Request Information">
+                        </div>
+                    </div>
+                    <!-- end form element -->
+                </form>
+            </div>
+            <div id="retake-container" class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
+                <div class="bg-light-gray row mx-0 py-4">
+                    <div class="col-sm-12 col-md-12 col-lg-6 mt-0">
+                        <button id="button--retake" class="btn btn-outline-corner font-weight-normal w-100">Retake
+                            Evaluation
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 mt-sm-5 mt-md-5 mt-lg-0">
+                        <button id="button--feedback" class="btn btn-outline-corner font-weight-normal w-100">Submit
+                            Feedback
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="feedback-container" class="col-sm-12 col-md-10 col-lg-8 col-xl-8 mt-sm-5 mt-md-5 mt-lg-3 mb-5">
+                <form class="feedback__form bg-light-gray p-3" method="post" action="./php/feedbackForm.php">
+                    <!-- form message -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-success feedback__msg" style="display: none" role="alert">
+                                Your message was sent successfully.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end message -->
+                    <!-- form element -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <label for="feedback-fname" class="mb-0 js-form-required form-required">First Name</label>
+                            <input id="feedback-fname" name="feedback-fname" type="text"
+                                   class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <label for="feedback-lname" class="mb-0 js-form-required form-required">Last Name</label>
+                            <input id="feedback-lname" name="feedback-lname" type="text"
+                                   class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 form-group">
+                            <label for="feedback-email" class="mb-0 js-form-required form-required">Email</label>
+                            <input id="feedback-email" name="feedback-email" type="email"
+                                   class="form-control mb-0 bg-transparent w-100 form-text form-control" required>
+                        </div>
+                        <div class="col-12 form-group">
+                            <label for="feedback-message" class="mb-0 js-form-required form-required">Feedback</label>
+                            <textarea id="feedback-message" name="feedback-message"
+                                      class="form-control mb-0 bg-transparent w-100 form-text form-control"
+                                      required></textarea>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 form-group">
+                            <input name="feedback-submit" type="submit"
+                                   class="webform-button--submit btn btn-outline-corner bg-transparent button button--primary js-form-submit form-submit btn btn-primary form-control w-100"
+                                   value="Submit Feedback">
+                        </div>
+                    </div>
+                    <!-- end form element -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!--hammer js 2.0.8-->
+<script src='https://hammerjs.github.io/dist/hammer.min.js' async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+        integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous" async></script>
+<!--JQuery should already be imported via drupal-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" async></script>
+<!--My custom JS-->
+<script src="js/script.js" type="module"></script>
+
+</html>

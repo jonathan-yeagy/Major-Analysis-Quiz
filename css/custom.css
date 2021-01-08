@@ -1,0 +1,278 @@
+/*CSS Variables*/
+html {
+    font-size: 200%;
+}
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #172236;
+    --red: #d83b18;
+    --danger: #d83b18;
+    --dark-blue: #101833;
+    --dark: #101833;
+    --penn-college-blue: #214a9f;
+    --primary: #214a9f;
+    --medium-blue: #0072ce;
+    --light-blue: #e3f2fa;
+    --green: #48b85c;
+    --success: #48b85c;
+    --dark-gray: #5c5c5c;
+    --secondary: #5c5c5c;
+    --medium-gray: #e0dfdf;
+    --secondary: #e0dfdf;
+    --light-gray: #f7f7f7;
+    --light: #f7f7f7;
+    --white: #ffffff;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+
+body {
+    background: #0072ce;
+}
+
+.postResults {
+    display: none;
+}
+
+#chartContainer {
+    margin: 0 auto;
+    display: none;
+}
+
+.infoContainer {
+    width: 100%;
+    height: 45vh;
+}
+
+#radarChart {
+    width: 100%;
+    height: 45vh;
+}
+
+.swipe--container {
+    overflow: hidden;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    -webkit-transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+    height: 45vh;
+}
+
+.loaded.swipe--container {
+    opacity: 1;
+}
+
+.swipe--status {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.swipe--status i {
+    font-size: 100px;
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    width: 100px;
+    margin-left: -50px;
+}
+
+.swipe--status_true .fa-check {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.swipe--status_false .fa-times {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.swipe--status_nuetral .fa-equals {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.swipeable--cards {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: end;
+    align-items: flex-end;
+    z-index: 1;
+    position: relative;
+    height: 100%;
+}
+
+.swipeable--card {
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    cursor: -webkit-grab;
+    cursor: grab;
+    min-height: 35vh;
+    font-size: 2rem;
+}
+
+.moving.swipeable--card {
+    -webkit-transition: none;
+    transition: none;
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.swipeable--card * {
+    pointer-events: none;
+}
+
+.swipe--buttons {
+    -webkit-box-flex: 0;
+    flex: 0 0 100px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.swipe--buttons button {
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    border: 0;
+    background: #FFFFFF;
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.swipe--buttons button:focus {
+    outline: 0;
+}
+
+.swipe--buttons i {
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.fa-times {
+    color: red;
+}
+
+.fa-check {
+    color: green;
+}
+
+.fa-equals {
+    color: orange;
+}
+
+#email-container form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#directions {
+    margin: 0px auto;
+    min-height: 75%;
+    display: flex;
+}
+
+#feedback-container {
+    display: none;
+}
+
+/*.infoContainer p{font-size: 3rem;}*/
+
+.major:hover {
+    text-decoration: none;
+}
+
+.major p.text-danger:hover {
+    text-decoration: underline;
+}
+
+.infoContainer p {
+    font-size: 1.25rem;
+}
+
+/*
+.major p{font-size: 1.75rem}
+.major h3{font-size: 2.25rem}
+*/
+
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 100%;
+    }
+
+    .swipe--container {
+        height: 100vh;
+    }
+
+    .infoContainer {
+        height: 100vh;
+    }
+
+    .infoContainer p {
+        font-size: 2rem;
+    }
+
+    .swipeable--card {
+        min-height: 65vh;
+    }
+
+    #directions {
+        min-height: 65%;
+    }
+
+    /*
+    .major p{font-size: 1rem}
+    .major h3{font-size: 1.75rem}
+    */
+    .btn-outline-corner:hover {
+        background-size: calc(100% + 14rem) 100%;
+    }
+}
